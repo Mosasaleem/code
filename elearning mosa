@@ -1,0 +1,61 @@
+using System;
+
+class Student
+{
+    private string name;
+    private int id;
+    private double gpa;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    public double GPA
+    {
+        get { return gpa; }
+        set
+        {
+            if (value >= 0 && value <= 4)
+                gpa = value;
+            else
+            {
+                Console.WriteLine("Invalid GPA! Setting GPA to 0.");
+                gpa = 0;
+            }
+        }
+    }
+
+    public void DisplayRecord()
+    {
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"ID: {Id}");
+        Console.WriteLine($"GPA: {GPA}");
+        Console.WriteLine("----------------------------");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student s1 = new Student();
+        s1.Name = "Ali";
+        s1.Id = 101;
+        s1.GPA = 3.5;
+        s1.DisplayRecord();
+
+        Student s2 = new Student();
+        s2.Name = "Sara";
+        s2.Id = 102;
+        s2.GPA = 6.0;
+        s2.DisplayRecord();
+    }
+}
